@@ -20,12 +20,16 @@
       .verified { display:inline-flex; align-items:center; gap:7px; margin-bottom:14px; color:var(--green); }
       .verified::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--green); }
       .toolbar { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:24px 0 18px; }
-      .filters { display:flex; flex-wrap:wrap; gap:8px; }
+      .filters { display:flex; flex:1; flex-wrap:wrap; gap:8px; }
+      .view-switch { display:flex; gap:6px; padding:4px; border:1px solid #cdd2de; border-radius:999px; background:var(--paper); white-space:nowrap; }
       button { cursor:pointer; color:var(--ink); background:transparent; border:1px solid #cdd2de; border-radius:999px; padding:9px 14px; font:500 .88rem 'Gowun Dodum',sans-serif; }
       button.active,button:hover { color:#fff; background:var(--ink); border-color:var(--ink); }
       button:focus-visible,a:focus-visible { outline:3px solid var(--yellow); outline-offset:3px; }
       .count { color:var(--muted); white-space:nowrap; }
-      .grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+      .grid { display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+      .grid.list-1 { grid-template-columns:1fr; }
+      .grid.list-1 article { display:grid; grid-template-columns:minmax(250px,36%) 1fr; }
+      .grid.list-1 .photo { height:100%; min-height:260px; border-bottom:0; border-right:1px solid var(--line); }
       article { min-width:0; background:var(--paper); border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; }
       .photo { position:relative; aspect-ratio:1.35/1; overflow:hidden; background:#eee; border-bottom:1px solid var(--line); }
       .photo img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .35s ease; }
@@ -44,8 +48,8 @@
       .empty { grid-column:1/-1; padding:50px; text-align:center; color:var(--muted); background:var(--paper); }
       footer { display:flex; gap:10px; align-items:flex-start; margin-top:24px; color:var(--muted); font-size:.84rem; line-height:1.65; }
       footer span:first-child { width:8px; height:8px; margin-top:6px; flex:none; border-radius:50%; background:var(--orange); }
-      @media(max-width:880px){.grid{grid-template-columns:repeat(2,1fr)}header{align-items:start}.intro{max-width:310px}}
-      @media(max-width:620px){.wrap{padding:24px 15px 48px}header{grid-template-columns:1fr}.intro{max-width:none}.toolbar{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.photo{aspect-ratio:1.45/1}.body{min-height:245px}}
+      @media(max-width:880px){.grid{grid-template-columns:repeat(2,1fr)}.grid.list-1 article{grid-template-columns:minmax(210px,34%) 1fr}header{align-items:start}.intro{max-width:310px}}
+      @media(max-width:620px){.wrap{padding:24px 15px 48px}header{grid-template-columns:1fr}.intro{max-width:none}.toolbar{align-items:flex-start;flex-direction:column}.grid,.grid.list-1{grid-template-columns:1fr}.grid.list-1 article{display:flex}.grid.list-1 .photo{height:auto;min-height:0;border-right:0;border-bottom:1px solid var(--line)}.photo{aspect-ratio:1.45/1}.body{min-height:245px}}
     </style>
   </head>
   <body>
@@ -54,21 +58,30 @@
         <div><p class="eyebrow">SNACK RADAR / OFFICIAL SOURCES</p><h1>과자<br>레이더</h1></div>
         <div><span class="verified">출처 확인 후 등록</span><p class="intro">롯데웰푸드·오리온·해태·크라운·농심·삼양·빙그레와 CU·GS25·세븐일레븐 공식 채널을 확인합니다. 공식 신상품 페이지·공식몰을 우선하고 SNS로 선공개 소식을 보완합니다.</p></div>
       </header>
-      <section class="toolbar" aria-label="목록 필터"><div class="filters"><button class="active" data-filter="all">전체</button><button data-filter="스낵">스낵</button><button data-filter="비스킷">비스킷</button><button data-filter="파이">파이</button><button data-filter="초콜릿·캔디">초콜릿·캔디</button><button data-filter="시리얼">시리얼</button><button data-filter="아이스크림">아이스크림</button><button data-filter="편의점 전용">편의점 전용</button></div><span class="count" id="count">불러오는 중</span></section>
+      <section class="toolbar" aria-label="목록 필터"><div class="filters"><button class="active" data-filter="all">전체</button><button data-filter="스낵">스낵</button><button data-filter="비스킷">비스킷</button><button data-filter="파이">파이</button><button data-filter="초콜릿·캔디">초콜릿·캔디</button><button data-filter="시리얼">시리얼</button><button data-filter="아이스크림">아이스크림</button><button data-filter="편의점 전용">편의점 전용</button></div><div class="view-switch" aria-label="목록 배열"><button class="active" data-view="2" aria-pressed="true">2열</button><button data-view="1" aria-pressed="false">1열</button></div><span class="count" id="count">불러오는 중</span></section>
       <section class="grid" id="grid" aria-live="polite"><p class="empty">공식 데이터를 불러오고 있습니다.</p></section>
-      <footer><span></span><span>등록 기준: 국내 과자·초콜릿·캔디·아이스크림의 신제품·새 맛·재출시 제품 중 제조사 또는 유통사 공식 채널과 제조사 제공 보도자료로 확인된 제품입니다. 출시일이나 판매처가 확인되지 않으면 ‘미정’으로 표시합니다.</span></footer>
+      <footer><span></span><span>등록 기준: 국내 과자·초콜릿·캔디·아이스크림의 신제품·새 맛·재출시 제품 중 제조사 또는 유통사 공식 채널과 제조사 제공 보도자료로 확인된 제품입니다. 출시일은 공식 발표 기준이며, 확인되지 않으면 ‘미정’으로 표시합니다. 공식몰·SNS에 남아 있는 오래된 제품은 신상 목록에서 제외합니다.</span></footer>
     </main>
     <script>
-      const grid=document.querySelector('#grid'),count=document.querySelector('#count'),buttons=[...document.querySelectorAll('button')];
+      const grid=document.querySelector('#grid'),count=document.querySelector('#count'),filterButtons=[...document.querySelectorAll('[data-filter]')],viewButtons=[...document.querySelectorAll('[data-view]')];
       let snacks=[];
+      let activeFilter='all';
       const esc=s=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-      function render(type='all'){
-        const list=snacks.filter(x=>type==='all'||x.category===type||(type==='편의점 전용'&&x.convenienceExclusive));
+      function render(type=activeFilter){
+        activeFilter=type;
+        const list=snacks.filter(x=>x.status!=='archived'&&(type==='all'||x.category===type||(type==='편의점 전용'&&x.convenienceExclusive)));
         count.textContent=String(list.length).padStart(2,'0')+' ITEMS';
         grid.innerHTML=list.length?list.map(x=>`<article><div class="photo"><img src="${esc(x.image)}" alt="${esc(x.name)} 제품 사진" loading="lazy"><span class="chip">${esc(x.category.toUpperCase())}</span>${x.limitedEdition?'<span class="limited-sticker">한정판</span>':''}</div><div class="body"><h2>${esc(x.name)}</h2><p class="company">${esc(x.company)}</p><div class="availability">${(x.channels||[]).map(v=>`<span>${esc(v)}</span>`).join('')}</div><dl class="details"><div><dt>출시일</dt><dd>${esc(x.releaseDate||'미정')}</dd></div><div><dt>판매처</dt><dd>${esc(x.seller||'미정')}</dd></div></dl><div class="links"><a class="source" href="${esc(x.sourceUrl)}" target="_blank" rel="noreferrer">출처 확인 ↗</a>${x.shopUrl?`<a class="source" href="${esc(x.shopUrl)}" target="_blank" rel="noreferrer">공식몰 ↗</a>`:''}${x.snsUrl?`<a class="source" href="${esc(x.snsUrl)}" target="_blank" rel="noreferrer">공식 SNS ↗</a>`:''}</div></div></article>`).join(''):'<p class="empty">이 분류에 등록된 제품이 없습니다.</p>';
       }
-      buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.filter)}));
-      fetch('./data/snacks.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{snacks=data.sort((a,b)=>(b.releaseDate||b.verifiedDate||'').localeCompare(a.releaseDate||a.verifiedDate||''));render()}).catch(()=>{count.textContent='오류';grid.innerHTML='<p class="empty">데이터를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.</p>'});
+      function setView(view){
+        grid.classList.toggle('list-1',view==='1');
+        viewButtons.forEach(b=>{const selected=b.dataset.view===view;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',selected);});
+        localStorage.setItem('snack-radar-view',view);
+      }
+      filterButtons.forEach(b=>b.addEventListener('click',()=>{filterButtons.forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.filter)}));
+      viewButtons.forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+      setView(localStorage.getItem('snack-radar-view')==='1'?'1':'2');
+      fetch('./data/snacks.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{snacks=data.sort((a,b)=>(b.releaseDate||b.firstConfirmedDate||'').localeCompare(a.releaseDate||a.firstConfirmedDate||''));render()}).catch(()=>{count.textContent='오류';grid.innerHTML='<p class="empty">데이터를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.</p>'});
     </script>
   </body>
 </html>
