@@ -21,7 +21,9 @@
       .verified::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--green); }
       .toolbar { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:24px 0 18px; }
       .filters { display:flex; flex:1; flex-wrap:wrap; gap:8px; }
-      .view-switch { display:flex; gap:6px; padding:4px; border:1px solid #cdd2de; border-radius:999px; background:var(--paper); white-space:nowrap; }
+      .view-switch { display:flex; gap:3px; margin-left:auto; padding:4px; border:1px solid #cdd2de; border-radius:999px; background:var(--paper); white-space:nowrap; }
+      .view-switch button { display:grid; width:34px; height:32px; place-items:center; padding:0; }
+      .view-switch svg { width:16px; height:16px; fill:currentColor; }
       button { cursor:pointer; color:var(--ink); background:transparent; border:1px solid #cdd2de; border-radius:999px; padding:9px 14px; font:500 .88rem 'Gowun Dodum',sans-serif; }
       button.active,button:hover { color:#fff; background:var(--ink); border-color:var(--ink); }
       button:focus-visible,a:focus-visible { outline:3px solid var(--yellow); outline-offset:3px; }
@@ -58,7 +60,7 @@
         <div><p class="eyebrow">SNACK RADAR / OFFICIAL SOURCES</p><h1>과자<br>레이더</h1></div>
         <div><span class="verified">출처 확인 후 등록</span><p class="intro">롯데웰푸드·오리온·해태·크라운·농심·삼양·빙그레와 CU·GS25·세븐일레븐 공식 채널을 확인합니다. 공식 신상품 페이지·공식몰을 우선하고 SNS로 선공개 소식을 보완합니다.</p></div>
       </header>
-      <section class="toolbar" aria-label="목록 필터"><div class="filters"><button class="active" data-filter="all">전체</button><button data-filter="스낵">스낵</button><button data-filter="비스킷">비스킷</button><button data-filter="파이">파이</button><button data-filter="초콜릿·캔디">초콜릿·캔디</button><button data-filter="시리얼">시리얼</button><button data-filter="아이스크림">아이스크림</button><button data-filter="편의점 전용">편의점 전용</button></div><div class="view-switch" aria-label="목록 배열"><button class="active" data-view="2" aria-pressed="true">2열</button><button data-view="1" aria-pressed="false">1열</button></div><span class="count" id="count">불러오는 중</span></section>
+      <section class="toolbar" aria-label="목록 필터"><div class="filters"><button class="active" data-filter="all">전체</button><button data-filter="스낵">스낵</button><button data-filter="비스킷">비스킷</button><button data-filter="파이">파이</button><button data-filter="초콜릿·캔디">초콜릿·캔디</button><button data-filter="시리얼">시리얼</button><button data-filter="아이스크림">아이스크림</button><button data-filter="편의점 전용">편의점 전용</button></div><span class="count" id="count">불러오는 중</span><div class="view-switch" aria-label="목록 배열"><button class="active" data-view="2" aria-label="2열 보기" title="2열 보기" aria-pressed="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1h6v6H1V1Zm8 0h6v6H9V1ZM1 9h6v6H1V9Zm8 0h6v6H9V9Z"/></svg></button><button data-view="1" aria-label="1열 보기" title="1열 보기" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1h14v2H1V1Zm0 6h14v2H1V7Zm0 6h14v2H1v-2Z"/></svg></button></div></section>
       <section class="grid" id="grid" aria-live="polite"><p class="empty">공식 데이터를 불러오고 있습니다.</p></section>
       <footer><span></span><span>등록 기준: 국내 과자·초콜릿·캔디·아이스크림의 신제품·새 맛·재출시 제품 중 제조사 또는 유통사 공식 채널과 제조사 제공 보도자료로 확인된 제품입니다. 출시일은 공식 발표 기준이며, 확인되지 않으면 ‘미정’으로 표시합니다. 공식몰·SNS에 남아 있는 오래된 제품은 신상 목록에서 제외합니다.</span></footer>
     </main>
