@@ -1,0 +1,57 @@
+[
+  {
+    "name": "오!그래놀라 저당 카카오",
+    "company": "오리온",
+    "category": "시리얼",
+    "releaseDate": "2026-07-14",
+    "seller": "공식 발표 미기재",
+    "image": "./images/granola-cacao.jpg",
+    "sourceUrl": "https://www.orionworld.com/board/view/87?boardno=1413",
+    "shopUrl": "",
+    "snsUrl": "https://www.instagram.com/p/DdVoSIAo_nW/"
+  },
+  {
+    "name": "미쯔 황치즈",
+    "company": "오리온",
+    "category": "비스킷",
+    "releaseDate": "2026-07-09",
+    "seller": "공식 발표 미기재",
+    "image": "./images/mitz-cheese.jpg",
+    "sourceUrl": "https://www.orionworld.com/board/view/87?boardno=1412",
+    "shopUrl": "",
+    "snsUrl": "https://www.orionworld.com/sns/snsList/89"
+  },
+  {
+    "name": "육포깡 매콤한맛",
+    "company": "농심",
+    "category": "스낵",
+    "releaseDate": "2026-06-08",
+    "seller": "대형마트 · 편의점 · 이커머스",
+    "image": "./images/yukpo-kang.jpg",
+    "sourceUrl": "https://www.nongshim.com/newsroom/news/view?category=all&id=186&page=1",
+    "shopUrl": "https://nongshimmall.com/product/%EC%B5%9C%EB%8C%80-4%EB%B4%89-%ED%95%9C%EC%A0%95-%EC%9C%A1%ED%8F%AC%EA%B9%A1-%EB%A7%A4%EC%BD%A4%ED%95%9C%EB%A7%9B-90g1/4661/",
+    "snsUrl": "https://www.nongshim.com/newsroom/sns/list"
+  },
+  {
+    "name": "망고킥",
+    "company": "농심",
+    "category": "스낵",
+    "releaseDate": "2026-05-18",
+    "seller": "농심몰 · 주요 유통점",
+    "image": "./images/mango-kick.jpg",
+    "sourceUrl": "https://www.nongshim.com/newsroom/news/view?category=all&id=164&page=1",
+    "shopUrl": "https://m.nongshimmall.com/product/detail.html?cate_no=1&product_no=4642",
+    "snsUrl": "https://www.nongshim.com/newsroom/sns/list"
+  },
+  {
+    "name": "빵부장 솔티꽈배기",
+    "company": "농심",
+    "category": "스낵",
+    "releaseDate": "2026-04-27",
+    "seller": "농심몰 · 주요 유통점",
+    "image": "./images/bbangbujang.jpg",
+    "sourceUrl": "https://www.nongshim.com/newsroom/news/view?category=all&id=154&page=3",
+    "shopUrl": "https://nongshimmall.com/product/%EB%B9%B5%EB%B6%80%EC%9E%A5-%EC%86%94%ED%8B%B0%EA%BD%88%EB%B0%B0%EA%B8%B055g1/4609/",
+    "snsUrl": "https://www.nongshim.com/newsroom/sns/list"
+  }
+]

@@ -3,56 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="새로 나온 과자를 공식 출처와 함께 모아보는 신상과자 업데이트 보드" />
-    <title>과자 레이더 · 신상 업데이트</title>
+    <meta name="description" content="공식 홈페이지와 SNS로 확인한 신상 과자 업데이트" />
+    <title>과자 레이더 · 공식 신상 업데이트</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%231c2b57'/%3E%3Cpath d='M16 35c0-10 8-18 18-18h14v30H34c-10 0-18-5-18-12Z' fill='%23ffb703'/%3E%3Ccircle cx='34' cy='29' r='3' fill='%231c2b57'/%3E%3Ccircle cx='42' cy='38' r='3' fill='%231c2b57'/%3E%3C/svg%3E" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Gowun+Dodum&family=Space+Grotesk:wght@500;600;700&display=swap');
-      :root { --ink:#17234b; --cream:#f8f4ec; --paper:#fffdf8; --orange:#ff7a45; --yellow:#ffca39; --line:#dfe3ed; --muted:#68708b; }
+      :root { --ink:#17234b; --cream:#f5f1e8; --paper:#fffdf8; --orange:#f05a31; --yellow:#ffca39; --line:#d9dde7; --muted:#68708b; --green:#16825d; }
       * { box-sizing:border-box; }
-      body { margin:0; color:var(--ink); background:var(--cream); font-family:'Gowun Dodum', sans-serif; }
-      .wrap { max-width:1160px; margin:auto; padding:38px 24px 72px; }
-      header { display:flex; justify-content:space-between; gap:24px; align-items:flex-start; border-bottom:2px solid var(--ink); padding-bottom:30px; }
-      .eyebrow, .meta, .count { font:500 .75rem/1.3 'DM Mono', monospace; letter-spacing:.04em; }
-      .eyebrow { color:var(--orange); margin:0 0 12px; }
-      h1 { font:700 clamp(2.3rem,6vw,4.5rem)/.95 'Space Grotesk','Gowun Dodum',sans-serif; letter-spacing:-.07em; margin:0; }
-      .intro { max-width:350px; margin:8px 0 0; font-size:1rem; line-height:1.7; color:var(--muted); }
-      .header-mark { display:grid; place-items:center; width:82px; height:82px; flex:none; border:2px solid var(--ink); border-radius:50%; background:var(--yellow); font:700 2.2rem 'Space Grotesk'; transform:rotate(8deg); }
-      .toolbar { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:25px 0 18px; }
+      body { margin:0; color:var(--ink); background:var(--cream); font-family:'Gowun Dodum',sans-serif; }
+      .wrap { max-width:1180px; margin:auto; padding:36px 24px 72px; }
+      header { display:grid; grid-template-columns:1fr auto; gap:26px; align-items:end; padding-bottom:28px; border-bottom:2px solid var(--ink); }
+      .eyebrow,.count,.verified { font:500 .75rem/1.4 'DM Mono',monospace; letter-spacing:.035em; }
+      .eyebrow { margin:0 0 10px; color:var(--orange); }
+      h1 { margin:0; font:700 clamp(2.5rem,6vw,4.8rem)/.92 'Space Grotesk','Gowun Dodum',sans-serif; letter-spacing:-.07em; }
+      .intro { max-width:380px; margin:0 0 3px; color:var(--muted); font-size:1rem; line-height:1.7; }
+      .verified { display:inline-flex; align-items:center; gap:7px; margin-bottom:14px; color:var(--green); }
+      .verified::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--green); }
+      .toolbar { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:24px 0 18px; }
       .filters { display:flex; flex-wrap:wrap; gap:8px; }
-      button { cursor:pointer; color:var(--ink); background:transparent; border:1px solid var(--line); border-radius:999px; padding:9px 14px; font:500 .86rem 'Gowun Dodum',sans-serif; }
-      button.active, button:hover { color:white; background:var(--ink); border-color:var(--ink); }
+      button { cursor:pointer; color:var(--ink); background:transparent; border:1px solid #cdd2de; border-radius:999px; padding:9px 14px; font:500 .88rem 'Gowun Dodum',sans-serif; }
+      button.active,button:hover { color:#fff; background:var(--ink); border-color:var(--ink); }
+      button:focus-visible,a:focus-visible { outline:3px solid var(--yellow); outline-offset:3px; }
       .count { color:var(--muted); white-space:nowrap; }
       .grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
-      article { position:relative; min-height:278px; padding:25px; background:var(--paper); border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; }
-      article:nth-child(3n+2) { background:#fff8d9; } article:nth-child(3n) { background:#ffede4; }
-      .chip { align-self:flex-start; border:1px solid currentColor; border-radius:999px; padding:5px 9px; color:var(--orange); font:500 .67rem 'DM Mono',monospace; }
-      h2 { margin:21px 0 6px; font:700 1.55rem/1.22 'Space Grotesk','Gowun Dodum',sans-serif; letter-spacing:-.045em; }
-      .company { margin:0; color:var(--muted); font-size:.9rem; }
-      .details { margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:12px; padding-top:24px; }
-      .details dt { color:var(--muted); font:500 .64rem 'DM Mono',monospace; margin-bottom:4px; } .details dd { margin:0; font-size:.86rem; }
-      a { color:inherit; text-decoration:none; } .source { display:inline-flex; margin-top:17px; align-items:center; gap:6px; font:500 .78rem 'DM Mono',monospace; text-decoration:underline; text-underline-offset:4px; } .source:hover{color:var(--orange)}
-      footer { display:flex; gap:12px; align-items:flex-start; margin-top:25px; color:var(--muted); font-size:.82rem; line-height:1.65; } .dot{width:8px;height:8px;margin-top:5px;flex:none;border-radius:50%;background:var(--orange)}
-      @media(max-width:760px){.wrap{padding:25px 16px 50px} header{padding-bottom:22px}.header-mark{width:62px;height:62px;font-size:1.6rem}.grid{grid-template-columns:1fr}.toolbar{align-items:flex-start;flex-direction:column}article{min-height:245px}}
+      article { min-width:0; background:var(--paper); border-right:1px solid var(--line); border-bottom:1px solid var(--line); display:flex; flex-direction:column; }
+      .photo { position:relative; aspect-ratio:1.35/1; overflow:hidden; background:#eee; border-bottom:1px solid var(--line); }
+      .photo img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .35s ease; }
+      article:hover .photo img { transform:scale(1.035); }
+      .chip { position:absolute; top:14px; left:14px; color:var(--ink); background:rgba(255,253,248,.92); border:1px solid currentColor; border-radius:999px; padding:5px 9px; font:500 .68rem 'DM Mono',monospace; backdrop-filter:blur(4px); }
+      .body { min-height:265px; display:flex; flex-direction:column; padding:22px; }
+      h2 { margin:0 0 6px; font:700 1.45rem/1.22 'Space Grotesk','Gowun Dodum',sans-serif; letter-spacing:-.045em; }
+      .company { margin:0; color:var(--muted); font-size:.92rem; }
+      .details { display:grid; grid-template-columns:1fr 1.2fr; gap:12px; margin:auto 0 0; padding-top:24px; }
+      .details dt { margin-bottom:4px; color:var(--muted); font:500 .67rem 'DM Mono',monospace; } .details dd { margin:0; font-size:.87rem; line-height:1.45; }
+      .links { display:flex; flex-wrap:wrap; gap:13px; margin-top:18px; padding-top:15px; border-top:1px solid var(--line); }
+      a { color:inherit; text-decoration:none; } .source { font:500 .78rem 'DM Mono',monospace; text-decoration:underline; text-underline-offset:4px; } .source:hover { color:var(--orange); }
+      .empty { grid-column:1/-1; padding:50px; text-align:center; color:var(--muted); background:var(--paper); }
+      footer { display:flex; gap:10px; align-items:flex-start; margin-top:24px; color:var(--muted); font-size:.84rem; line-height:1.65; }
+      footer span:first-child { width:8px; height:8px; margin-top:6px; flex:none; border-radius:50%; background:var(--orange); }
+      @media(max-width:880px){.grid{grid-template-columns:repeat(2,1fr)}header{align-items:start}.intro{max-width:310px}}
+      @media(max-width:620px){.wrap{padding:24px 15px 48px}header{grid-template-columns:1fr}.intro{max-width:none}.toolbar{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.photo{aspect-ratio:1.45/1}.body{min-height:245px}}
     </style>
   </head>
   <body>
     <main class="wrap">
       <header>
-        <div><p class="eyebrow">SNACK RADAR / KOREA</p><h1>과자<br>레이더</h1></div>
-        <div><div class="header-mark">NEW</div><p class="intro">이번 달 새로 나온 과자를 한곳에. 공식몰과 브랜드 소식을 원문 링크로 확인하세요.</p></div>
+        <div><p class="eyebrow">SNACK RADAR / OFFICIAL SOURCES</p><h1>과자<br>레이더</h1></div>
+        <div><span class="verified">공식 출처 확인</span><p class="intro">브랜드 공식 홈페이지·공식몰을 기준으로 기록하고, SNS는 신제품 사진과 후속 소식을 보완하는 출처로 활용합니다.</p></div>
       </header>
-      <section class="toolbar" aria-label="목록 필터"><div class="filters"><button class="active" data-filter="all">전체</button><button data-filter="초콜릿">초콜릿</button><button data-filter="스낵">스낵</button><button data-filter="쿠키">쿠키</button></div><span class="count" id="count">06 ITEMS</span></section>
-      <section class="grid" id="grid" aria-label="신상 과자 목록">
-        <article data-type="초콜릿"><span class="chip">CHOCOLATE</span><h2>제로 쿠앤크 샌드</h2><p class="company">롯데웰푸드</p><dl class="details"><div><dt>업데이트</dt><dd>2026. 09. 22</dd></div><div><dt>판매처</dt><dd>공식몰 · 편의점</dd></div></dl><a class="source" href="https://www.lottewellfood.com/" target="_blank" rel="noreferrer">공식몰 확인 ↗</a></article>
-        <article data-type="스낵"><span class="chip">SNACK</span><h2>꼬깔콘<br>매콤달콤맛</h2><p class="company">롯데웰푸드</p><dl class="details"><div><dt>업데이트</dt><dd>2026. 09. 19</dd></div><div><dt>판매처</dt><dd>마트 · 온라인몰</dd></div></dl><a class="source" href="https://www.lottewellfood.com/" target="_blank" rel="noreferrer">브랜드 소식 ↗</a></article>
-        <article data-type="쿠키"><span class="chip">COOKIE</span><h2>오예스<br>말차 크림</h2><p class="company">해태제과</p><dl class="details"><div><dt>업데이트</dt><dd>2026. 09. 16</dd></div><div><dt>판매처</dt><dd>공식몰 · 마트</dd></div></dl><a class="source" href="https://www.haitai.co.kr/" target="_blank" rel="noreferrer">공식 홈페이지 ↗</a></article>
-        <article data-type="스낵"><span class="chip">SNACK</span><h2>포카칩<br>트러플 솔트</h2><p class="company">오리온</p><dl class="details"><div><dt>업데이트</dt><dd>2026. 09. 12</dd></div><div><dt>판매처</dt><dd>편의점 · 마트</dd></div></dl><a class="source" href="https://www.orionworld.com/" target="_blank" rel="noreferrer">공식 홈페이지 ↗</a></article>
-        <article data-type="초콜릿"><span class="chip">CHOCOLATE</span><h2>빈츠<br>피스타치오</h2><p class="company">롯데웰푸드</p><dl class="details"><div><dt>업데이트</dt><dd>2026. 09. 08</dd></div><div><dt>판매처</dt><dd>공식몰 · 편의점</dd></div></dl><a class="source" href="https://www.lottewellfood.com/" target="_blank" rel="noreferrer">공식몰 확인 ↗</a></article>
-        <article data-type="쿠키"><span class="chip">COOKIE</span><h2>촉촉한 초코칩<br>솔티드 카라멜</h2><p class="company">오리온</p><dl class="details"><div><dt>업데이트</dt><dd>2026. 09. 03</dd></div><div><dt>판매처</dt><dd>마트 · 온라인몰</dd></div></dl><a class="source" href="https://www.orionworld.com/" target="_blank" rel="noreferrer">브랜드 소식 ↗</a></article>
-      </section>
-      <footer><span class="dot"></span><span>현재 목록은 화면 구성을 위한 예시입니다. 실제 업데이트 시 브랜드의 공식 홈페이지 또는 공식 SNS 원문을 링크해 출처와 판매 정보를 함께 기록하세요.</span></footer>
+      <section class="toolbar" aria-label="목록 필터"><div class="filters"><button class="active" data-filter="all">전체</button><button data-filter="스낵">스낵</button><button data-filter="비스킷">비스킷</button><button data-filter="시리얼">시리얼</button></div><span class="count" id="count">불러오는 중</span></section>
+      <section class="grid" id="grid" aria-live="polite"><p class="empty">공식 데이터를 불러오고 있습니다.</p></section>
+      <footer><span></span><span>출시일과 판매처는 연결된 공식 자료에 적힌 내용만 사용합니다. 판매처 정보가 없는 경우에는 임의로 추정하지 않습니다.</span></footer>
     </main>
-    <script>const b=[...document.querySelectorAll('button')],c=document.querySelector('#count'),a=[...document.querySelectorAll('article')];b.forEach(x=>x.onclick=()=>{b.forEach(y=>y.classList.remove('active'));x.classList.add('active');let n=0;a.forEach(z=>{let v=x.dataset.filter==='all'||z.dataset.type===x.dataset.filter;z.hidden=!v;n+=v});c.textContent=String(n).padStart(2,'0')+' ITEMS'})</script>
+    <script>
+      const grid=document.querySelector('#grid'),count=document.querySelector('#count'),buttons=[...document.querySelectorAll('button')];
+      let snacks=[];
+      const esc=s=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+      function render(type='all'){
+        const list=snacks.filter(x=>type==='all'||x.category===type);
+        count.textContent=String(list.length).padStart(2,'0')+' ITEMS';
+        grid.innerHTML=list.length?list.map(x=>`<article><div class="photo"><img src="${esc(x.image)}" alt="${esc(x.name)} 제품 사진" loading="lazy"><span class="chip">${esc(x.category.toUpperCase())}</span></div><div class="body"><h2>${esc(x.name)}</h2><p class="company">${esc(x.company)}</p><dl class="details"><div><dt>출시일</dt><dd>${esc(x.releaseDate)}</dd></div><div><dt>판매처</dt><dd>${esc(x.seller)}</dd></div></dl><div class="links"><a class="source" href="${esc(x.sourceUrl)}" target="_blank" rel="noreferrer">공식 발표 ↗</a>${x.shopUrl?`<a class="source" href="${esc(x.shopUrl)}" target="_blank" rel="noreferrer">공식몰 ↗</a>`:''}${x.snsUrl?`<a class="source" href="${esc(x.snsUrl)}" target="_blank" rel="noreferrer">공식 SNS ↗</a>`:''}</div></div></article>`).join(''):'<p class="empty">이 분류에 등록된 제품이 없습니다.</p>';
+      }
+      buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.filter)}));
+      fetch('./data/snacks.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{snacks=data.sort((a,b)=>b.releaseDate.localeCompare(a.releaseDate));render()}).catch(()=>{count.textContent='오류';grid.innerHTML='<p class="empty">데이터를 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.</p>'});
+    </script>
   </body>
 </html>
