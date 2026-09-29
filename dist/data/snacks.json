@@ -466,5 +466,47 @@
     "sourceUrl": "https://m.nongshimmall.com/product/detail.html?product_no=4733&cate_no=94&display_group=1",
     "shopUrl": "https://m.nongshimmall.com/product/detail.html?product_no=4733&cate_no=94&display_group=1",
     "snsUrl": "https://www.instagram.com/nongshim/"
+  },
+  {
+    "name": "ZERO 미니 감귤케이크",
+    "company": "롯데웰푸드",
+    "category": "케이크",
+    "releaseDate": "2026-10-01",
+    "seller": "롯데마트·슈퍼 전점 · 세븐일레븐",
+    "channels": ["마트", "세븐일레븐"],
+    "convenienceExclusive": false,
+    "limitedEdition": true,
+    "image": "https://imgnews.pstatic.net/image/003/2026/09/29/NISI20260928_0002250007_web_20260928161512_20260929060114447.jpg?type=w860",
+    "sourceUrl": "https://n.news.naver.com/mnews/article/003/0014219333?sid=101",
+    "shopUrl": "",
+    "snsUrl": "https://www.instagram.com/lottewellfood_official/"
+  },
+  {
+    "name": "ZERO 애플망고 젤리",
+    "company": "롯데웰푸드",
+    "category": "젤리",
+    "releaseDate": "2026-10-01",
+    "seller": "롯데마트·슈퍼 전점",
+    "channels": ["마트"],
+    "convenienceExclusive": false,
+    "limitedEdition": true,
+    "image": "https://imgnews.pstatic.net/image/003/2026/09/29/NISI20260928_0002250007_web_20260928161512_20260929060114447.jpg?type=w860",
+    "sourceUrl": "https://n.news.naver.com/mnews/article/003/0014219333?sid=101",
+    "shopUrl": "",
+    "snsUrl": "https://www.instagram.com/lottewellfood_official/"
+  },
+  {
+    "name": "ZERO 피넛 크런치볼",
+    "company": "롯데웰푸드",
+    "category": "초콜릿",
+    "releaseDate": "2026-10-01",
+    "seller": "롯데마트·슈퍼 전점",
+    "channels": ["마트"],
+    "convenienceExclusive": false,
+    "limitedEdition": true,
+    "image": "https://imgnews.pstatic.net/image/003/2026/09/29/NISI20260928_0002250007_web_20260928161512_20260929060114447.jpg?type=w860",
+    "sourceUrl": "https://n.news.naver.com/mnews/article/003/0014219333?sid=101",
+    "shopUrl": "",
+    "snsUrl": "https://www.instagram.com/lottewellfood_official/"
   }
 ]
