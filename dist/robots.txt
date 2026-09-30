@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://snack-radar.ure0126.chatgpt.site/sitemap.xml
