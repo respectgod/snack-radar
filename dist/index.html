@@ -68,22 +68,22 @@
       .search-info h2 { font-size:1.08rem; letter-spacing:-.025em; }
       .search-info p { max-width:760px; margin:8px 0 0; color:var(--muted); font-size:.9rem; line-height:1.7; }
       @media(max-width:880px){.grid{grid-template-columns:repeat(2,1fr)}.grid.list-view article{grid-template-columns:minmax(210px,34%) 1fr}header{align-items:start}.intro{max-width:310px}}
-      @media(max-width:620px){.wrap{padding:24px 15px 48px}header{grid-template-columns:1fr}.intro{max-width:none}.toolbar{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.grid.list-view{grid-template-columns:1fr}.grid.list-view article{display:grid;grid-template-columns:minmax(0,38%) minmax(0,62%)}.grid.list-view .photo{width:100%;min-width:0;height:100%;min-height:210px;aspect-ratio:auto;border-right:1px solid var(--line);border-bottom:0}.grid.list-view .body{min-width:0;min-height:210px;padding:15px}.grid.list-view h2{font-size:1.08rem;overflow-wrap:anywhere}.grid.list-view .availability{margin-top:8px}.grid.list-view .details{gap:8px;padding-top:15px}.grid.list-view .links{display:none}.photo{aspect-ratio:1.45/1}.body{min-height:245px}}
+      @media(max-width:620px){.wrap{padding:24px 15px 48px}header{grid-template-columns:1fr}.intro{max-width:none}.toolbar{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.grid.list-view{grid-template-columns:1fr}.grid.list-view article{display:grid;grid-template-columns:minmax(0,38%) minmax(0,62%)}.grid.list-view .photo{width:100%;min-width:0;height:100%;min-height:210px;aspect-ratio:auto;border-right:1px solid var(--line);border-bottom:0}.grid.list-view .body{min-width:0;min-height:210px;padding:15px}.grid.list-view h2{font-size:1.08rem;overflow-wrap:anywhere}.grid.list-view .availability{margin-top:8px}.grid.list-view .details{gap:8px;padding-top:15px}.grid.list-view .links{display:flex;gap:8px;margin-top:12px;padding-top:11px}.grid.list-view .source{font-size:.7rem}.photo{aspect-ratio:1.45/1}.body{min-height:245px}}
     </style>
   </head>
   <body>
     <main class="wrap">
       <header>
         <div><p class="eyebrow">SNACK RADAR / OFFICIAL SOURCES</p><h1>과자<br>레이더</h1></div>
-        <div><span class="verified">출처 확인 후 등록</span><p class="intro">롯데웰푸드·오리온·해태·크라운·농심·삼양·빙그레와 CU·GS25·세븐일레븐 공식 채널을 확인합니다. 공식 신상품 페이지·공식몰을 우선하고 SNS로 선공개 소식을 보완합니다.</p></div>
+        <div><span class="verified">출처 확인 후 등록</span></div>
       </header>
       <section class="toolbar" aria-label="목록 필터"><div class="filters"><button class="active" data-filter="all">전체</button><button data-filter="스낵">스낵</button><button data-filter="비스킷">비스킷</button><button data-filter="초콜릿·캔디">초콜릿·캔디</button><button data-filter="시리얼">시리얼</button><button data-filter="아이스크림">아이스크림</button><button data-filter="편의점 전용">편의점 전용</button></div><span class="count" id="count">불러오는 중</span><div class="view-switch" aria-label="보기 방식"><button type="button" class="active" data-layout="image" aria-label="이미지형 보기" title="이미지형 보기" aria-pressed="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1h6v6H1V1Zm8 0h6v6H9V1ZM1 9h6v6H1V9Zm8 0h6v6H9V9Z"/></svg></button><button type="button" data-layout="list" aria-label="리스트형 보기" title="리스트형 보기" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1h14v2H1V1Zm0 6h14v2H1V7Zm0 6h14v2H1v-2Z"/></svg></button></div></section>
       <section class="grid" id="grid" aria-live="polite"><p class="empty">공식 데이터를 불러오고 있습니다.</p></section>
       <section class="search-info" aria-labelledby="search-info-title">
         <h2 id="search-info-title">신상과자와 편의점 신상 정보를 확인하는 곳</h2>
-        <p>과자 레이더는 롯데웰푸드, 오리온, 해태제과, 크라운제과, 농심 등 제조사와 CU·GS25·세븐일레븐의 공식 채널을 확인해 신상과자·초콜릿·캔디·아이스크림 정보를 정리합니다. 제품별 출시일, 판매처, 공식 출처와 이미지를 함께 제공합니다.</p>
+        <p>과자 레이더는 롯데웰푸드, 오리온, 해태제과, 크라운제과, 농심, 삼양식품, 빙그레와 CU·GS25·세븐일레븐의 공식 채널을 확인해 신상과자·초콜릿·캔디·아이스크림 정보를 정리합니다. 제품별 출시일, 판매처, 공식 출처와 이미지를 함께 제공합니다.</p>
+        <p>국내 과자·초콜릿·캔디·아이스크림의 신제품·새 맛·재출시 제품 가운데 제조사 또는 유통사의 공식 채널과 제조사 제공 보도자료로 확인된 제품만 등록합니다. 출시일은 공식 발표 기준이며 확인되지 않으면 ‘미정’으로 표시하고, 공식몰·SNS에 남아 있는 오래된 제품은 신상 목록에서 제외합니다.</p>
       </section>
-      <footer><span></span><span>등록 기준: 국내 과자·초콜릿·캔디·아이스크림의 신제품·새 맛·재출시 제품 중 제조사 또는 유통사 공식 채널과 제조사 제공 보도자료로 확인된 제품입니다. 출시일은 공식 발표 기준이며, 확인되지 않으면 ‘미정’으로 표시합니다. 공식몰·SNS에 남아 있는 오래된 제품은 신상 목록에서 제외합니다.</span></footer>
     </main>
     <script>
       const grid=document.querySelector('#grid'),count=document.querySelector('#count'),filterButtons=[...document.querySelectorAll('[data-filter]')],layoutButtons=[...document.querySelectorAll('[data-layout]')];
